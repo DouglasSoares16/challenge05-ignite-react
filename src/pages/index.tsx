@@ -47,7 +47,9 @@ export default function Home(): JSX.Element {
             },
           ]}
         />
-        {/* TODO RENDER LOAD MORE BUTTON IF DATA HAS NEXT PAGE */}
+        <Button type="button" mt="8">
+          Carregar mais
+        </Button>
       </Box>
     </>
   );
