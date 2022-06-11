@@ -17,9 +17,9 @@ export default function Home(): JSX.Element {
     fetchNextPage,
     hasNextPage,
   } = useInfiniteQuery(
-    'images',
+    'images'
     // TODO AXIOS REQUEST WITH PARAM
-    ,
+
     // TODO GET AND RETURN NEXT PAGE PARAM
   );
 
@@ -36,7 +36,17 @@ export default function Home(): JSX.Element {
       <Header />
 
       <Box maxW={1120} px={20} mx="auto" my={20}>
-        <CardList cards={formattedData} />
+        <CardList
+          cards={[
+            {
+              title: 'Mine',
+              description: 'My house in Minecraft',
+              url: 'https://thearchitecturedesigns.com/wp-content/uploads/2021/02/mincraft-house-8-759x500.jpg',
+              ts: 543463456345,
+              id: '1',
+            },
+          ]}
+        />
         {/* TODO RENDER LOAD MORE BUTTON IF DATA HAS NEXT PAGE */}
       </Box>
     </>
