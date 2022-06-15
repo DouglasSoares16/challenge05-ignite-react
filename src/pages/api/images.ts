@@ -27,6 +27,7 @@ export default async function handler(
 ): Promise<void> {
   if (req.method === 'POST') {
     const { url, title, description } = req.body;
+    console.log({ url, title, description });
 
     return client
       .query(
