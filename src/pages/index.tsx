@@ -20,17 +20,13 @@ export default function Home(): JSX.Element {
     'images',
     // eslint-disable-next-line consistent-return
     async ({ pageParam = null }) => {
-      try {
-        const response = await api.get('/api/images', {
-          params: {
-            after: pageParam,
-          },
-        });
+      const response = await api.get('/api/images', {
+        params: {
+          after: pageParam,
+        },
+      });
 
-        return response.data;
-      } catch (error) {
-        console.log(error);
-      }
+      return response.data;
     },
     {
       getNextPageParam: lastPage => lastPage?.after || null,
@@ -50,13 +46,13 @@ export default function Home(): JSX.Element {
     }
   }, [data]);
 
-  /* if (isLoading && !isError) {
+  if (isLoading) {
     return <Loading />;
   }
 
-  if (!isLoading && isError) {
+  if (isError) {
     return <Error />;
-  } */
+  }
 
   return (
     <>
