@@ -28,13 +28,14 @@ export function CardList({ cards }: CardsProps): JSX.Element {
   return (
     <>
       <SimpleGrid gap="8" columns={3}>
-        {cards?.map(card => (
-          <Card
-            key={card.id}
-            data={card}
-            viewImage={() => handleViewImage(card.url)}
-          />
-        ))}
+        {cards.length > 0 &&
+          cards.map(card => (
+            <Card
+              key={card.id}
+              data={card}
+              viewImage={() => handleViewImage(card.url)}
+            />
+          ))}
       </SimpleGrid>
 
       <ModalViewImage

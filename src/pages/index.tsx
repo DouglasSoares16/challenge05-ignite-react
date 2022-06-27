@@ -1,4 +1,4 @@
-import { Button, Box } from '@chakra-ui/react';
+import { Button, Box, Badge } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import { useInfiniteQuery } from 'react-query';
 
@@ -37,11 +37,17 @@ export default function Home(): JSX.Element {
     }
   );
 
+  // eslint-disable-next-line consistent-return
   const formattedData = useMemo(() => {
-    const formatted = data?.pages.flatMap(imageData => {
-      return imageData.data.flat();
-    });
-    return formatted;
+    if (data !== undefined) {
+      const formatted = data.pages
+        .map(imageData => {
+          return imageData.data;
+        })
+        .flat();
+
+      return formatted;
+    }
   }, [data]);
 
   /* if (isLoading && !isError) {
